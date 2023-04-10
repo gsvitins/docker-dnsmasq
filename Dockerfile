@@ -6,5 +6,3 @@ EXPOSE 53/tcp 53/udp 67/udp
 HEALTHCHECK --interval=15s --timeout=5s CMD /healthcheck.sh
 
 CMD ["dnsmasq", "-k"]
-
-
