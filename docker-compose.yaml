@@ -3,11 +3,13 @@ services:
   dnsmasq:
     restart: always
     container_name: dnsmasq
-    image: gsvitins/dnsmasq
+    image: gsvitins/dnsmasq:1.0
+    command: --log-queries --log-facility=/var/log/dnsmasq.log
     volumes:
       - ./dnsmasq.conf:/etc/dnsmasq.conf
+      - ./logs/:/var/log/
     ports:
-      - "53/tcp:53/tcp"
-      - "53/udp:53/udp"
-      - "67/udp:67/udp"
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
 
